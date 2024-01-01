@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-outline"
+requires-python = ">= 3.7"
+version = "1.0.0"
+authors = [{name = "Vladislav Fedin", email = "vlad@fedin7.ru"}]
+readme = {file = "README.rst", content-type = "text/x-rst"}
+license = {file = "LICENSE"}
+keywords = ["python", "python3", "outline", "outline vpn", "shadowsocks"]
+dependencies = [
+    "httpx==0.26.0",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+
+  "Intended Audience :: Developers",
+
+  "License :: OSI Approved :: MIT License",
+
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Documentation = "https://python-outline.readthedocs.io/"
+Repository = "https://github.com/7vlad7/python-outline.git"
+Issues = "https://github.com/7vlad7/python-outline/issues"
