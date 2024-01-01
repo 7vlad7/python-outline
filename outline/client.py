@@ -104,7 +104,7 @@ class OutlineClientInfo:
     def __init__(self, server_info: dict):
         self.name = server_info.get('name', 'Outline Server')
         self.server_id = server_info.get('serverId', "")
-        self.created_time = server_info.get('createdTimestampMs')
+        self.created_at = server_info.get('createdTimestampMs', 0)
         self.version = server_info.get('version', "")
         self.port_for_new_keys = server_info.get('portForNewAccessKeys', 0)
         self.hostname_for_keys = server_info.get('hostnameForAccessKeys', "")
