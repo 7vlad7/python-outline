@@ -23,6 +23,30 @@ class BaseMeta():
         self.__dict__ = data
 
 
+class DataTransfered(BaseMeta):
+    """
+    Base class for Outline data transfered
+    """
+    bytesTransferredByUserId: dict[str, int] = {}
+
+    @property
+    def total(self) -> int:
+        """
+        Returns the total data transfered
+        """
+        return sum(self.bytesTransferredByUserId.values())
+
+    def by_key(self, access_key: str | int | OutlineAccessKey) -> int:
+        """
+        Returns the data transfered by the given access key
+        """
+
+        if isinstance(access_key, OutlineAccessKey):
+            access_key = access_key.id
+
+        return self.bytesTransferredByUserId.get(str(access_key), 0)
+
+
 class OutlineAccessKey(BaseMeta):
     """
     Base class for Outline access keys
@@ -87,6 +111,13 @@ class OutlineAccessKey(BaseMeta):
         """
         self.client.rename_key(self, name)
         self.name = name
+
+    @property
+    def metrics(self) -> int:
+        """
+        Returns the data transfered by the access key
+        """
+        return self.client.metrics.by_key(self)
 
 
 @dataclass
@@ -321,3 +352,13 @@ class OutlineClient:
             key.rename(name)
 
         return key
+
+    @property
+    def metrics(self) -> DataTransfered:
+        """
+        Returns the data transfered
+        """
+
+        r = self.request.get("/metrics/transfer")
+        r.raise_for_status()
+        return DataTransfered(r.json())

@@ -10,3 +10,4 @@ __pycache__/
 
 .venv/
 .mypy_cache
+dev.py

@@ -4,8 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "python-outline"
+description = "Simple and easy to use wrapper for the Outline API."
 requires-python = ">= 3.7"
-version = "1.0.0"
+version = "1.0.1"
 authors = [{name = "Vladislav Fedin", email = "vlad@fedin7.ru"}]
 readme = {file = "README.rst", content-type = "text/x-rst"}
 license = {file = "LICENSE"}
