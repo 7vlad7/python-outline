@@ -1,2 +1,1 @@
 sphinx-book-theme
-httpx==0.26.0
