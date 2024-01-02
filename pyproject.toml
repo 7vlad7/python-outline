@@ -11,9 +11,7 @@ authors = [{name = "Vladislav Fedin", email = "vlad@fedin7.ru"}]
 readme = {file = "README.rst", content-type = "text/x-rst"}
 license = {file = "LICENSE"}
 keywords = ["python", "python3", "outline", "outline vpn", "shadowsocks"]
-dependencies = [
-    "httpx==0.26.0",
-]
+dynamic = ["dependencies"]
 classifiers = [
   "Development Status :: 5 - Production/Stable",
 
@@ -28,6 +26,9 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
 ]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
 
 [project.urls]
 Documentation = "https://python-outline.readthedocs.io/"
